@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; script-src 'self'; frame-src https: http:;" />
+  <title>Quenq Runner</title>
+  <meta name="description" content="Enter a game URL to launch it in a dedicated full-window shell." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded&display=swap" rel="stylesheet">
+  <link href="./launcher.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="game-view" class="game-view" hidden>
+    <iframe id="game-frame" title="Game"
+      allow="autoplay; fullscreen; gamepad; screen-wake-lock; encrypted-media" allowfullscreen></iframe>
+    <div id="game-loading" class="game-loading">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading game…</p>
+    </div>
+  </div>
+
+  <div id="url-modal" class="modal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="url-modal-title">
+      <h2 id="url-modal-title">Enter game URL</h2>
+      <form id="url-form" novalidate>
+        <input id="url-input" class="field" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+          placeholder="https://example.com/game/" required />
+        <p id="url-error" class="form-error" hidden></p>
+        <div class="modal-actions">
+          <button type="submit" id="url-submit" class="btn btn-primary">Fetch &amp; Play</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./launcher.js"></script>
+</body>
+
+</html>
