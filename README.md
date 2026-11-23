@@ -35,6 +35,24 @@ Nothing is saved to disk — the URL is asked for on every launch.
 | `F12` | Toggle developer tools |
 | `Cmd+W` / `Ctrl+W` | Close the window and quit |
 
+## Build
+
+```sh
+pnpm build:mac      # macOS (dmg + zip, x64 and arm64)
+pnpm build:linux    # Linux (AppImage + deb)
+pnpm build:windows  # Windows (NSIS installer + zip)
+pnpm build:dir      # unpacked app for quick testing
+```
+
+Each target is most reliable on its own OS. The GitHub Actions workflow builds all three on push to `main` and publishes a release.
+
+### macOS
+
+The macOS build is ad-hoc signed but not notarized. On first launch macOS may warn that the developer cannot be verified:
+
+- Right-click the app and choose **Open**, or
+- Run `xattr -cr /Applications/qwenq-runner.app` and open it again.
+
 ## Notes
 
 - The local shell is served over `http://localhost:<port>` so game pages that only allow `localhost` framing work correctly.

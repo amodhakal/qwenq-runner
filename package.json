@@ -14,7 +14,9 @@
     "build": "electron-builder",
     "build:mac": "electron-builder --mac",
     "build:linux": "electron-builder --linux",
-    "build:win": "electron-builder --win"
+    "build:windows": "electron-builder --win",
+    "build:win": "electron-builder --win",
+    "build:dir": "electron-builder --dir"
   },
   "build": {
     "appId": "com.amodhakal.qwenqrunner",
@@ -30,6 +32,7 @@
     ],
     "mac": {
       "category": "public.app-category.games",
+      "identity": "-",
       "target": [
         {
           "target": "dmg",
